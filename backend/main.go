@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	r := router.Router()
+	r := router.LoadRouter()
 
 	server := &http.Server{
 		Addr:    ":8080",

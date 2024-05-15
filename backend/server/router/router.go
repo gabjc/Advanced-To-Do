@@ -6,16 +6,12 @@ import (
 	"github.com/gabjc/Advanced-To-Do/server/middleware"
 )
 
-func router() {
-	r := http.NewServeMux()
+func LoadRouter() http.Handler {
+	mux := http.NewServeMux()
+	handler := &middleware.Handler{}
 
-	r.HandleFunc("POST /users", middleware.CreateUser)
-	// r.HandleFunc("POST /users", func(w http.ResponseWriter, r *http.Request) {
-	// 	w.Write([]byte("Created a new User"))
-	// })
+	mux.HandleFunc("POST /users", handler.CreateUser)
+	mux.HandleFunc("POST /{user}/task/{id}", handler.CreateTask)
 
-	// r.HandleFunc("POST /{user}/task/{id}", func(w http.ResponseWriter, r *http.Request) {
-	// 	taskID := r.PathValue("id")
-	// 	fmt.Fprintf(w, "Task ID: %s", taskID)
-	// })
+	return mux
 }
