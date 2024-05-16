@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gabjc/Advanced-To-Do/router"
+	"github.com/gabjc/Advanced-To-Do/backend/server/router"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-package Handler
+package middleware
 
 import (
 	"net/http"
@@ -11,6 +11,10 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) GetAllTasks(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func (h *Handler) GetTaskByID(w http.ResponseWriter, r *http.Request) {
 
 }
 
