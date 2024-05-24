@@ -10,6 +10,7 @@ import (
 func main() {
 	r := router.LoadRouter()
 
+	startDatabase()
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: r,
