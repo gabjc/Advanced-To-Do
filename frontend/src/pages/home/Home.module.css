@@ -1,10 +1,14 @@
 .container {
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
   }
   
   .title {
     font-size: 2rem;
+    color: #333;
+  }
+  .subheading {
+    font-size: 1rem;
     color: #333;
   }
   
