@@ -14,7 +14,7 @@ const Home = () => {
   return (
     
     <div className={styles.container}>
-      <TopNavBar />
+      
       <h1 className={styles.title}>Assignments</h1>
       <h1 className={styles.subheading}>Streaks: {streakCount} </h1>
       <div className="calender-view">Calender View</div>
