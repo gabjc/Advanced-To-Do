@@ -4,13 +4,14 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gabjc/Advanced-To-Do/backend/server/middleware"
 	"github.com/gabjc/Advanced-To-Do/backend/server/router"
 )
 
 func main() {
 	r := router.LoadRouter()
+	middleware.StartDatabase()
 
-	startDatabase()
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: r,

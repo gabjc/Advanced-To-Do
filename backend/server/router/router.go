@@ -11,11 +11,12 @@ func LoadRouter() http.Handler {
 	handler := &middleware.Handler{}
 
 	mux.HandleFunc("POST /users", handler.CreateUser)
-	mux.HandleFunc("GET /home/{user}", handler.GetAllTasks)
-	mux.HandleFunc("GET /{user}/task/{id}", handler.GetTaskByID)
-	mux.HandleFunc("POST /{user}/task", handler.CreateTask)
-	mux.HandleFunc("DELETE /{user}/delete-task/{id}", handler.DeleteTask)
-	mux.HandleFunc("PUT /{user}/edit-task/{id}", handler.EditTask)
+	mux.HandleFunc("GET /home/{userID}", handler.GetAllTasks)
+	mux.HandleFunc("GET /{userID}/task/{id}", handler.GetSpecificTask)
+	mux.HandleFunc("GET /{userID}/task/{id}/edit", handler.GetSpecificTask)
+	mux.HandleFunc("POST /{userID}/task", handler.CreateTask)
+	mux.HandleFunc("DELETE /{userID}/delete-task/{id}", handler.DeleteTask)
+	mux.HandleFunc("PUT /{userID}/edit-task/{id}", handler.EditTask)
 
 	return mux
 }

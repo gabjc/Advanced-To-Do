@@ -7,6 +7,8 @@ type Task struct {
 	DateCreated string `json:"date_created"`
 	FinishDate  string `json:"finish_date"`
 	Notes       string `json:"notes"`
+	UserID      int64  `json:"user_id"` //For determining if a user owns this task
+
 }
 
 /*
