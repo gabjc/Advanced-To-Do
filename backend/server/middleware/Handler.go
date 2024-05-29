@@ -37,11 +37,16 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		_, err = db.Exec("INSERT INTO users (userID, username, password, email) values (?, ?, ?, ?)")
+		_, err = db.Exec("INSERT INTO users (userID, username, password, email) values ($1, $2, $3, $4)")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+		// Return the created task as JSON
+		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(user)
+	} else {
+		w.WriteHeader(http.StatusBadRequest)
 	}
 }
 
@@ -137,11 +142,17 @@ func (h *Handler) CreateTask(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		_, err = db.Exec("INSERT INTO tasks (id, name, status, date_created, finish_date, notes, user_id) values (?, ?, ?, ?, ?, ?, ?)")
+		_, err = db.Exec("INSERT INTO tasks (id, name, status, date_created, finish_date, notes, user_id) values ($1, $2, $3, $4, $5, $6, $7)")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+
+		// Return the created task as JSON
+		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(task)
+	} else {
+		w.WriteHeader(http.StatusBadRequest)
 	}
 }
 
@@ -176,14 +187,40 @@ func (h *Handler) DeleteTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Return a success message
-	w.WriteHeader(http.StatusNoContent)
+	// Return status code 200
+	w.WriteHeader(http.StatusOK)
 }
 
 func (h *Handler) EditTask(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-}
+	//Getting the userID to compare to the tasks list from the URL query
+	idStr := r.URL.Query().Get("id")
+	taskID, err := strconv.ParseInt(idStr, 10, 64)
+	if err != nil {
+		http.Error(w, "Invalid task ID", http.StatusBadRequest)
+		return
+	}
 
-func (h *Handler) CompleteTask(w http.ResponseWriter, r *http.Request) {
+	var editedTask Models.Task
+	err = json.NewDecoder(r.Body).Decode(&editedTask)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 
+	// Update the task in the database
+	query := `
+	UPDATE tasks
+	SET name = $1, status = $2, finish_date = $3, notes = $4
+	WHERE id = $5`
+	_, err = db.Exec(query, editedTask.Name, editedTask.Status, editedTask.FinishDate, editedTask.Notes, taskID)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Return status code 200
+	w.WriteHeader(http.StatusOK)
 }
