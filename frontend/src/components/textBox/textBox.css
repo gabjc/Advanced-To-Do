@@ -1,23 +1,27 @@
 .text-box-container {
-    background-color: rgb(224, 223, 223);
-    padding: 10px;
-    border-radius: 25px;
-    width: auto;
-    height: 150px; /* Default height */
-    margin-bottom: 20px;  /* Add spacing between text boxes */
-    border: 50px black;
-  
+    display: flex; /* Use flexbox layout */
+    background-color: rgb(224, 223, 223); /* Set background color */
+    padding: 10px; /* Add padding */
+    border-radius: 25px; /* Add rounded corners */
+    width: auto; /* Set width to auto */
+    min-height: 150px; /* Set minimum height */
+    margin-bottom: 20px; /* Add spacing between text boxes */
+    border: 50px black; /* Set border */
+    flex-direction: column; /* Set flex direction to column */
 }
 
 .text-box-header {
-    font-size: 24px;
-    padding: 0;
-    margin: 0;
+    margin: 0; /* Remove margin */
+    padding: 10px; /* Add padding */
+    flex: 0 0 auto; /* Ensures the header takes only the space it needs */
 }
 
 .text-box-text {
-    font-size: 16px;
-    border: none;
-    padding: 0;
-    margin: 0;
+    flex: 1 1 auto; /* Allows the text box to grow and take up remaining space */
+    padding: 10px; /* Add padding */
+    box-sizing: border-box; /* Ensures padding is included in the width/height calculation */
+    outline: none; /* Removes the default focus outline */
+    white-space: pre-wrap; /* Preserves whitespace and allows text to wrap */
+    word-wrap: break-word; /* Breaks long words at the end of the line */
+    overflow: hidden; /* Hide overflowing content */
 }

@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/home/Home';
 import AssignmentView from './pages/taskInfo/AssignmentView';
 import TopNavBar from './components/topNavBar/TopNavBar';
+import CreateTask from './pages/create/CreateTask';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ReactDOM from "react-dom/client";
 
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/task/:taskId" element={<AssignmentView />} />
+        <Route path="/create" element={<CreateTask/>} />
       </Routes>
     </BrowserRouter>
   );
