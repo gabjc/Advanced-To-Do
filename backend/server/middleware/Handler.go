@@ -15,7 +15,7 @@ type Handler struct{}
 
 func StartDatabase() {
 	var err error
-	connStr := "host=db-instance-procrastination-app.cv6iyauy0wli.us-east-2.rds.amazonaws.com port=5432 user=username password=password dbname=db-instance-procrastination-app sslmode=disable"
+	connStr := ""
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
 		panic(err)
