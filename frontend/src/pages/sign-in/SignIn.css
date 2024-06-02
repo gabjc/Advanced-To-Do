@@ -28,6 +28,29 @@
     margin-bottom: 20px;           /* Space below the title */
 }
 
+/* Styling for the input containers */
+.input-container {
+    margin-bottom: 15px;           /* Space between input fields */
+}
+
+/* Styling for the input labels */
+.input-label {
+    display: block;                /* Block layout for the label */
+    margin-bottom: 5px;            /* Space below the label */
+    font-size: 1em;                /* Font size for the label */
+    color: #333333;                /* Dark grey color */
+}
+
+/* Styling for the input boxes */
+.input-box {
+    width: 100%;                   /* Full width of the parent container */
+    padding: 8px;                  /* Space inside the input box */
+    box-sizing: border-box;        /* Include padding in element's total width and height */
+    border: 1px solid #ccc;        /* Light grey border */
+    border-radius: 5px;            /* Rounded corners */
+    font-size: 1em;                /* Font size for the input box */
+}
+
 /* Container for the buttons */
 .button-container {
     display: flex;                 /* Flexbox layout */

@@ -1,40 +1,62 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import './SignIn.css';
-import TextBox from '../../components/textBox/textBox';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
 
-    const userRef = useRef({
+    const [userDetails, setUserDetails] = useState({
         username: '',
         password: '',
     });
 
-    const handleTextChange = (id, newText) => {
-        // Directly updating the ref object
-        userRef.current[id] = newText;
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setUserDetails(prevState => ({
+            ...prevState,
+            [id]: value
+        }));
     };
+
 
     const handleRegisterClick = () => {
         navigate('/register');
       };
     const handleSignInClick = () => {
+        // TODO: get resposne from server to check if user is in database or not
         navigate('/');
+        console.log('Sign In clicked', userDetails);
     };
 
     return (
         <div className='main-container'>
-            <h1 className='login-title'>Login</h1>
-            <div className='sign-in-container'>
-                <TextBox id='username' header='Username' text={userRef.current.username} editable={true} onTextChange={handleTextChange} />
-                <TextBox id='password' header='Password' text={userRef.current.password} editable={true} onTextChange={handleTextChange} />
+            <h1 className='register-title'>Register</h1>
+            <div className='register-container'>
+                <div className='input-container'>
+                    <label htmlFor='username' className='input-label'>Username</label>
+                    <input
+                        id='username'
+                        type='text'
+                        className='input-box'
+                        value={userDetails.username}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className='input-container'>
+                    <label htmlFor='password' className='input-label'>Password</label>
+                    <input
+                        id='password'
+                        type='password'
+                        className='input-box'
+                        value={userDetails.password}
+                        onChange={handleInputChange}
+                    />
+                </div>
                 <div className='button-container'>
                     <div className= "signin-button" onClick={handleSignInClick}> Sign In </div>
                     <div className= "register-button" onClick={handleRegisterClick}> Register </div>
                 </div>
             </div>
-            
         </div>
     );
     
