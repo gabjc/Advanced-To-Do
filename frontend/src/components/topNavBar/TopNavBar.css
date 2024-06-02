@@ -13,7 +13,7 @@
 
 .buttons-container {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .home-button{
@@ -23,6 +23,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
 .create-button {
@@ -33,6 +34,18 @@
   border-radius: 5px;
   border: 2px solid  rgba(12, 176, 58, 0.2);
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.signout-button{
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid  rgba(255, 0, 0, 0.226);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .create-button:hover 
@@ -42,7 +55,12 @@
 
 }
 
+.signout-button:hover 
+ {
 
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.226);
+
+}
 
 .home-button:hover
  {

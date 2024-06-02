@@ -9,7 +9,7 @@
     border: 50px black; /* Set border */
     flex-direction: column; /* Set flex direction to column */
 }
-
+    
 .text-box-header {
     margin: 0; /* Remove margin */
     padding: 10px; /* Add padding */
@@ -19,6 +19,7 @@
 .text-box-text {
     flex: 1 1 auto; /* Allows the text box to grow and take up remaining space */
     padding: 10px; /* Add padding */
+    background-color: rgb(255, 255, 255); /* Set background color */
     box-sizing: border-box; /* Ensures padding is included in the width/height calculation */
     outline: none; /* Removes the default focus outline */
     white-space: pre-wrap; /* Preserves whitespace and allows text to wrap */

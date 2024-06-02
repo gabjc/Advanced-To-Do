@@ -12,6 +12,11 @@ const TopNavBar = ({userName}) => {
   const handleCreateClick = () => {
     navigate('/create');
   };
+   
+  const handleSignOutClick = () => {
+    navigate('/sign-in');
+  };
+
   return (
     <div className="top-nav-bar">
 
@@ -19,6 +24,7 @@ const TopNavBar = ({userName}) => {
       <div className="buttons-container">
         <div className="home-button" onClick={handleHomeClick}> Home </div>
         <div className="create-button" onClick={handleCreateClick}> Create </div>
+        <div className= "signout-button" onClick={handleSignOutClick}> Sign Out </div>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import Home from './pages/home/Home';
 import AssignmentView from './pages/taskInfo/AssignmentView';
 import TopNavBar from './components/topNavBar/TopNavBar';
 import CreateTask from './pages/create/CreateTask';
+import SignIn from './pages/sign-in/SignIn';
+import Register from './pages/register/Register';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ReactDOM from "react-dom/client";
 
@@ -18,11 +20,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <TopNavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/task/:taskId" element={<AssignmentView />} />
-        <Route path="/create" element={<CreateTask/>} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/task/:taskId" element={<AssignmentView />} />
+          <Route path="/create" element={<CreateTask/>} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };
