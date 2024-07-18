@@ -8,15 +8,14 @@ import (
 
 func LoadRouter() http.Handler {
 	mux := http.NewServeMux()
-	handler := &middleware.Handler{}
 
-	mux.HandleFunc("POST /register", handler.CreateUser)
-	mux.HandleFunc("GET /home/{userID}", handler.GetAllTasks)
-	mux.HandleFunc("GET /{userID}/{id}", handler.GetSpecificTask)
-	mux.HandleFunc("POST /{userID}/create-task", handler.CreateTask)
-	mux.HandleFunc("DELETE /{userID}/delete-task/{id}", handler.DeleteTask)
-	mux.HandleFunc("GET /{userID}/edit-task/{id}/", handler.GetSpecificTask)
-	mux.HandleFunc("PUT /{userID}/edit-task/{id}", handler.EditTask)
+	mux.HandleFunc("POST /register", middleware.CreateUser())
+	mux.HandleFunc("GET /home/{userID}", middleware.GetAllTasks())
+	mux.HandleFunc("GET /{userID}/{id}", middleware.GetTaskByID())
+	mux.HandleFunc("POST /{userID}/create-task", middleware.CreateTask())
+	mux.HandleFunc("DELETE /{userID}/delete-task/{id}", middleware.DeleteTask())
+	mux.HandleFunc("GET /{userID}/edit-task/{id}/", middleware.GetTaskByID())
+	// mux.HandleFunc("PUT /{userID}/edit-task/{id}", middleware.EditTask())
 
 	return mux
 }
