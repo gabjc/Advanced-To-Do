@@ -8,7 +8,6 @@ import SignIn from './pages/sign-in/SignIn';
 import Register from './pages/register/Register';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ReactDOM from "react-dom/client";
-
 const App = () => {
     const task = {
     name: 'Task 1',

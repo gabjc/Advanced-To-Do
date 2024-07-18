@@ -1,25 +1,34 @@
 .text-box-container {
     display: flex; /* Use flexbox layout */
+    /* TODO: Add from styles.css */
     background-color: rgb(224, 223, 223); /* Set background color */
     padding: 10px; /* Add padding */
     border-radius: 25px; /* Add rounded corners */
     width: auto; /* Set width to auto */
     min-height: 150px; /* Set minimum height */
     margin-bottom: 20px; /* Add spacing between text boxes */
-    border: 50px black; /* Set border */
+    border: 2px solid rgb(187, 187, 187); /* Define border width, style, and color */
     flex-direction: column; /* Set flex direction to column */
 }
-    
+.text-box-container:focus-within {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow on focus */
+}
+
+ 
+/* Name of the text box */
 .text-box-header {
     margin: 0; /* Remove margin */
     padding: 10px; /* Add padding */
+    text-align: left; /* Align text to the left */
     flex: 0 0 auto; /* Ensures the header takes only the space it needs */
 }
 
 .text-box-text {
     flex: 1 1 auto; /* Allows the text box to grow and take up remaining space */
     padding: 10px; /* Add padding */
-    background-color: rgb(255, 255, 255); /* Set background color */
+    /* TODO: Add from styles.css */
+    background-color: rgb(224, 223, 223); /* Set background color */
+    text-align: left; /* Align text to the left */
     box-sizing: border-box; /* Ensures padding is included in the width/height calculation */
     outline: none; /* Removes the default focus outline */
     white-space: pre-wrap; /* Preserves whitespace and allows text to wrap */

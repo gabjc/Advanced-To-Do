@@ -3,10 +3,13 @@
     padding: 10px;
     border-radius: 25px;
     margin-bottom: 20px;  /* Add spacing between text boxes */
-    border: 50px black;
+    border: 2px solid rgb(187, 187, 187); /* Define border width, style, and color */
   
 }
 
+.full-timeline-container:focus-within {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow on focus */
+}
 .timeline-header {
     font-size: 24px;
     padding: 0;

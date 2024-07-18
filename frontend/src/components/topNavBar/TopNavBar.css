@@ -9,6 +9,7 @@
 
 .user-name {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .buttons-container {
@@ -21,7 +22,7 @@
   color: #000000;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
@@ -31,8 +32,9 @@
   color: #000000;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   border: 2px solid  rgba(12, 176, 58, 0.2);
+  border-bottom: 4px solid  rgba(0, 120, 34, 0.2);
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
@@ -42,8 +44,9 @@
   color: #000000;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   border: 2px solid  rgba(255, 0, 0, 0.226);
+  border-bottom: 4px solid  rgba(255, 0, 0, 0.226);
   transition: box-shadow 0.3s ease;
   cursor: pointer;
 }

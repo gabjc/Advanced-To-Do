@@ -5,7 +5,16 @@
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #ffffff !important; /* Change this to your desired color */
 }
+
+.task-title {
+    font-size: 45px;
+    margin: 0;
+    text-align: left;
+    padding: 20px;
+}
+
 /* Container for the task */
 .task-container {
     display: flex;
@@ -15,13 +24,37 @@
 }
 
 .task-info-container {
-    flex: 0 0 80%; /* Take up 80% of the space */
-    padding-right: 20px; /* Optional: Add some spacing between the sections */
+    flex: 0 0 80%; 
+    padding-right: 10%; 
     box-sizing: border-box;
 }
 
 .timeline-container {
-    flex: 0 0 20%; /* Take up 20% of the space */
+    flex: 0 0 20%; 
     box-sizing: border-box;
+    flex-direction: column;
+    height: max-content;
+
+
+}
+
+
+.submit-button {
+
+    align-self: flex-end;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 24px;
+    border-radius: 15px;
+    border: 2px solid  #4CAF50; 
+    border-bottom: 4px solid  #4CAF50; 
+    transition: box-shadow 0.3s ease;
 }
 

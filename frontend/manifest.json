@@ -1,0 +1,11 @@
+{
+    "name": "Advanced-To-Do",
+    "version": "1.0.0",
+    "description": "Basic To-Do List with advanced features like drag and drop, edit, delete, etc.",
+    "manifest_version": 3,
+    "author": "Rohan and Gabe",
+    "action":{
+        "default_popup": "public/index.html",
+        "default_title": "Advanced-To-Do"
+    }
+}

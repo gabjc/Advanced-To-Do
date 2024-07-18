@@ -16,7 +16,7 @@ const CreateTask = () => {
 
     const handleTextChange = (id, newText) => {
         // Directly updating the ref object
-        taskRef.current[id] = newText;
+        taskRef.current[id] = newText;  
     };
 
     const handleSubmit = () => {
@@ -36,8 +36,8 @@ const CreateTask = () => {
                     <TextBox id='personalNotes' header='Personal Notes' text={taskRef.current.personalNotes} editable={true} width='auto' height='150px' onTextChange={handleTextChange}/>
                 </div>
                 <div className='timeline-container'>
-                    <TimelineTextBox startDate={taskRef.current.startDate} endDate={taskRef.current.endDate}/>
-                    <button onClick={handleSubmit}>Submit</button>
+                    <TimelineTextBox id='date' startDate={taskRef.current.startDate} endDate={taskRef.current.endDate} editable={true} onTextChange={handleTextChange}/>
+                    <button className='submit-button' onClick={handleSubmit}>Submit</button>
                 </div>
             </div>
         </div>
