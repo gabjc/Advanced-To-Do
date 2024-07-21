@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './CreateTask.css';
 import TextBox from '../../components/textBox/textBox';
 import TimelineTextBox from '../../components/timelineTextBox/timelineTextBox';
-
+import SubmitButton from '../../components/submitButton/submitButton';
 const CreateTask = () => {
     // Using useRef to store the task values without causing re-renders
     const taskRef = useRef({
@@ -37,7 +37,7 @@ const CreateTask = () => {
                 </div>
                 <div className='timeline-container'>
                     <TimelineTextBox id='date' startDate={taskRef.current.startDate} endDate={taskRef.current.endDate} editable={true} onTextChange={handleTextChange}/>
-                    <button className='submit-button' onClick={handleSubmit}>Submit</button>
+                    <SubmitButton text='Submit' onClick={handleSubmit}/>
                 </div>
             </div>
         </div>

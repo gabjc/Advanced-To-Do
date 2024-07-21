@@ -2,7 +2,9 @@ import React from 'react';
 import './AssignmentView.css';
 import TextBox from '../../components/textBox/textBox';
 import TimelineTextBox from '../../components/timelineTextBox/timelineTextBox';
+import SubmitButton from '../../components/submitButton/submitButton';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // TODO: ACTUALLY PARSE THROUGH DATABASE AND GET THE TASKS
 const getTaskById = (taskId) => {
@@ -21,11 +23,18 @@ const getTaskById = (taskId) => {
 const AssignmentView = () => {
     const { taskId } = useParams();
     const task = getTaskById(taskId);
+
+    const navigate = useNavigate();
   
     if (!task) {
       return <div>Task not found</div>;
     }
-  
+
+    const startTimer = () => {
+        
+        console.log('Submitted');
+        navigate(`/task/${taskId}/timer`);
+    };
     return (
         <div className='main-container'>
             <h1 className='task-title'>{task.name}</h1>
@@ -37,6 +46,7 @@ const AssignmentView = () => {
                     </div>
                     <div className='timeline-container'>
                         <TimelineTextBox startDate={task.startDate} endDate={task.endDate}/>
+                        <SubmitButton text='Start' handleSubmit={startTimer}/>
                     </div>
                 </div>
         </div>

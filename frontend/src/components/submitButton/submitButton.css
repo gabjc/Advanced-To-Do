@@ -1,0 +1,19 @@
+.submit-button {
+
+    align-self: flex-end;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 24px;
+    border-radius: 15px;
+    border: 2px solid  #4CAF50; 
+    border-bottom: 4px solid  #4CAF50; 
+    transition: box-shadow 0.3s ease;
+}
+

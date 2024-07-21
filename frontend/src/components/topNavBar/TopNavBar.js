@@ -1,5 +1,5 @@
 import React from 'react';
-import './TopNavBar.css'; // Import your CSS file for styling
+import './TopNavBar.css'; 
 import { useNavigate } from 'react-router-dom';
 
 const TopNavBar = ({userName}) => {

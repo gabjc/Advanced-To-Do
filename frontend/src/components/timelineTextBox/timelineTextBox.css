@@ -2,13 +2,13 @@
     background-color: rgb(224, 223, 223);
     padding: 10px;
     border-radius: 25px;
-    margin-bottom: 20px;  /* Add spacing between text boxes */
-    border: 2px solid rgb(187, 187, 187); /* Define border width, style, and color */
+    margin-bottom: 20px;  
+    border: 2px solid rgb(187, 187, 187); 
   
 }
 
 .full-timeline-container:focus-within {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow on focus */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 .timeline-header {
     font-size: 24px;
