@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './TaskTimer.css';
 import Timer from '../../components/timer/Timer';
 import { useParams } from 'react-router-dom';
@@ -18,14 +18,28 @@ const TaskTimer = () => {
       
     const { taskId } = useParams();
     const task = getTaskById(taskId);    
-    const [seconds, setSeconds] = useState(300);
-    const [isTimerRunning, setIsTimerRunning] = useState(true);
+    const [seconds, setSeconds] = useState(0);
+    const [isTimerRunning, setIsTimerRunning] = useState(false);
     const [end, setEnd] = useState(false);
-    
+    const [submit, setSubmit] = useState(false);
+    const timeRef = useRef({
+        time : 0,
+    });
+    const intervalRef = useRef(null);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
+    const handleTimerSubmit = (givenTime) => {
+        console.log('submitted here');
+        console.log(givenTime);
+        timeRef.current.time = givenTime;
+        setIsTimerRunning(true);
+        setSeconds(timeRef.current.time);
+        if(intervalRef.current !== null){
+            clearInterval(intervalRef.current);
+        }
+
+        intervalRef.current = setInterval(() => {
             setSeconds(prevSeconds => {
+               
                 if (prevSeconds === 0) {
                     endTimer();
                  
@@ -33,14 +47,33 @@ const TaskTimer = () => {
                     
                 }
                 else{
+                    console.log(prevSeconds);
                     return prevSeconds - 1;
                 }
                 
             });
         }, 1000);
+    };
+    
+    const onSubmit = () => {
+        setSubmit(true);
+
+    }
+
+    const convertTimeToSeconds = (time) => {
+        const [minutes, seconds] = time.split(':');
+        return parseInt(minutes) * 60 + parseInt(seconds);
+    };
+
+
+
+    
+
+    useEffect(() => {
+
 
         return () => {
-            clearInterval(interval);
+            clearInterval(intervalRef.current);
         };
     }, []);
     
@@ -68,13 +101,13 @@ const TaskTimer = () => {
             <div className='task-timer-info'>
             <h1 className='task-name'>{task.name}</h1>
             <TextBox header='Description' text={task.description} />
-            <Timer seconds={seconds} />
+            <Timer seconds={seconds} submitted={submit} handleSubmit={handleTimerSubmit} />
             </div>
-            <div className='timer-buttons'>
-            
+            {!isTimerRunning && !end &&  <button className='start-button' onClick={() => onSubmit()}>Start Timer</button>}
+            {isTimerRunning && <div className='timer-buttons'>
             <button className='extra-time-button'onClick={handleAddTime}>Add 5 minutes</button>
             <button className='end-button' onClick={endTimer}>End Timer</button>
-            </div>
+            </div>}
             {end && <p>Time is up!</p>}
 
 

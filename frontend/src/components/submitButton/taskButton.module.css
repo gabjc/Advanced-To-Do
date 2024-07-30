@@ -1,6 +1,8 @@
-.submit-button {
+.button {
 
     align-self: flex-end;
+    flex-grow: 1;
+    flex-shrink: 1;
     text-align: center;
     text-decoration: none;
     display: inline-block;

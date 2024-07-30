@@ -1,41 +1,91 @@
-/* Styles for the taskView page */
 .main-container {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #ffffff !important; /* Change this to your desired color */
+    background-color: #ffffff !important;
+    overflow: auto;
 }
 
 .task-title {
-    font-size: 45px;
+    font-size: 10vh;
     margin: 0;
     text-align: left;
     padding: 20px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Container for the task */
 .task-container {
     display: flex;
     padding: 20px;
     box-sizing: border-box;
-    
+    flex-wrap: wrap;
+    overflow: auto;
 }
 
 .task-info-container {
-    flex: 0 0 80%; 
-    padding-right: 10%; 
+    flex: 0 0 80%;
+    padding-right: 10%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .timeline-container {
-    flex: 0 0 20%; 
+    flex: 0 0 20%;
     box-sizing: border-box;
     flex-direction: column;
     height: max-content;
-
-
+    overflow: hidden;
 }
 
+@media (max-width: 1200px) {
+    .task-title {
+        font-size: 8vh;
+    }
+    .task-info-container {
+        flex: 0 0 75%;
+        padding-right: 5%;
+    }
+    .timeline-container {
+        flex: 0 0 25%;
+    }
+}
 
+@media (max-width: 900px) {
+    .task-title {
+        font-size: 6vh;
+    }
+    .task-info-container {
+        flex: 0 0 70%;
+        padding-right: 5%;
+    }
+    .timeline-container {
+        flex: 0 0 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        padding: 10px;
+    }
+    .task-title {
+        font-size: 5vh;
+        padding: 10px;
+    }
+    .task-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .task-info-container {
+        flex: 0 0 100%;
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+    .timeline-container {
+        flex: 0 0 100%;
+    }
+}

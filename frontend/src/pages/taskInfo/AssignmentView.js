@@ -2,7 +2,7 @@ import React from 'react';
 import './AssignmentView.css';
 import TextBox from '../../components/textBox/textBox';
 import TimelineTextBox from '../../components/timelineTextBox/timelineTextBox';
-import SubmitButton from '../../components/submitButton/submitButton';
+import TaskButton from '../../components/submitButton/taskButton';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +46,7 @@ const AssignmentView = () => {
                     </div>
                     <div className='timeline-container'>
                         <TimelineTextBox startDate={task.startDate} endDate={task.endDate}/>
-                        <SubmitButton text='Start' handleSubmit={startTimer}/>
+                        <TaskButton text='Start' handleSubmit={startTimer}/>
                     </div>
                 </div>
         </div>

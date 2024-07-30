@@ -9,7 +9,14 @@
 }
 
 
-.TimerBox h1:last-child {
+.TimerText {
     font-size: 50px;
     font-weight: bold;
+    border: none; /* Add this line to remove the border */
+    
+}
+
+
+.TimerText:focus-within {
+    border: none;
 }

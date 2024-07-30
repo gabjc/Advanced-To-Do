@@ -1,6 +1,6 @@
 // src/ListView.js
 import React from 'react';
-import './ListView.css';
+import styles  from './ListView.module.css';
 import { useNavigate } from 'react-router-dom';
 import Checkmark from '../checkmark/checkmark';
 import toolbox from '../../assets/images/toolbox.jpg';
@@ -8,17 +8,17 @@ import toolbox from '../../assets/images/toolbox.jpg';
 
 const TaskCard = ({ task, onClick }) => {
   return (
-    <div className="task-card">
+    <div className={styles.taskcard}>
 
       
-      <img  className='task-picture' src={toolbox} alt="toolbox" />
-      <div className='task-info'>
-        <div className='task-description'> 
-          <div className="task-name">{task.name}</div>
-          <div className="task-date">{task.date}</div>
+      <img  className={styles.picture} src={toolbox} alt="toolbox" />
+      <div className={styles.taskinfo}>
+        <div className={styles.taskdescription}> 
+          <div className={styles.taskname}>{task.name}</div>
+          <div className={styles.taskdate}>{task.date}</div>
         </div>
-        <div className='task-buttons'>
-          <button className='edit-button' onClick={() => onClick(task.id)}>Edit</button>
+        <div className={styles.taskbuttons}>
+          <button className={styles.editbutton} onClick={() => onClick(task.id)}>Edit</button>
           <Checkmark />
         </div>
       </div>
@@ -35,7 +35,7 @@ const ListView = ({ tasks }) => {
   };
 
   return (
-    <div className="list-view">
+    <div className={styles.listview}>
       {tasks.map((task, index) => (
         <TaskCard key={index} task={task} onClick={handleTaskClick} />
       ))}
