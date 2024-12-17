@@ -1,14 +1,34 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
-    "start_url": ".",
-    "display": "standalone",
-      "version": "1.0.0",
-      "description": "Basic To-Do List with advanced features like drag and drop, edit, delete, etc.",
-      "manifest_version": 3,
-      "author": "Rohan and Gabe",
-      "action":{
-          "default_popup": "index.html",
-          "default_title": "Advanced-To-Do"
+    "manifest_version": 3,
+    "name": "Advanced To-Do",
+    "short_name": "To-Do",
+    "version": "1.0.0",
+    "description": "Basic To-Do List with advanced features like drag and drop, edit, delete, etc.",
+    "author": "Rohan and Gabe",
+  
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "permissions": [
+      "notifications",
+      "activeTab",
+      "scripting"
+    ],
+  
+    "host_permissions": [
+      "<all_urls>"
+    ],
+  
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "Advanced To-Do"
+    },
+  
+    "web_accessible_resources": [
+      {
+        "resources": ["static/js/*.js", "static/css/*.css"],
+        "matches": ["<all_urls>"]
       }
+    ]
   }

@@ -1,0 +1,104 @@
+.listview {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 1em;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .picture {
+    width: 20%;
+    flex: 0 0 auto;
+    margin-right: 1em;
+    object-fit: contain;
+  }
+  
+  .taskcard {
+    display: flex;
+    background-color: #ededed;
+    border: 1px solid #ccc;
+    border-radius: 3%;
+    padding: 1em;
+    margin: 0.5em 0;
+    width: 50%;
+    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+  }
+  
+  .taskinfo {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-between;
+    flex: 1;
+  }
+  
+  .taskdescription {
+    flex: 1;
+    flex-direction: column;
+  }
+  
+  .taskbuttons {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding:  2%;
+  }
+  
+  .taskname {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .editbutton {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: auto;
+    border: none;
+    text-align: center;
+    padding: 1.0em 1.5em;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .editbutton:hover {
+    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
+  }
+  
+  .taskdate {
+    font-size: 1.0rem;
+    color: #666;
+  }
+  
+  /* Scaling for different screen widths */
+  @media (max-width: 1200px) {
+    .taskcard {
+      width: 60%;
+    }
+  
+  
+  
+  }
+  
+  @media (max-width: 900px) {
+    .taskcard {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .taskcard {
+      width: 90%;
+    }
+  }
+  

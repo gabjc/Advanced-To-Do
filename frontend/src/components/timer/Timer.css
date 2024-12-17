@@ -13,10 +13,31 @@
     font-size: 50px;
     font-weight: bold;
     border: none; /* Add this line to remove the border */
-    
+    font-family: 'Arial', sans-serif; /* Change to your desired font */
+    font-size: 50px; /* Adjust the font size */
+    font-weight: bold; /* Adjust the font weight */
+    outline: none; /* Removes the default blue border on focus */
+    text-align: center; /* Centers the text */
 }
 
 
 .TimerText:focus-within {
     border: none;
+}
+
+.TimerInputBox {
+    padding: 40px;
+}
+
+/* Timer.module.css */
+
+.TimerInputBox input {
+    font-size: 50px;
+    font-weight: bold;
+    border: none; /* Add this line to remove the border */
+    font-family: 'Arial', sans-serif; /* Change to your desired font */
+    font-size: 50px; /* Adjust the font size */
+    font-weight: bold; /* Adjust the font weight */
+    outline: none; /* Removes the default blue border on focus */
+    text-align: center; /* Centers the text */
 }
